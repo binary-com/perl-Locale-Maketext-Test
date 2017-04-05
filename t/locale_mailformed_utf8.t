@@ -14,10 +14,5 @@ my $handler = Locale::Maketext::Test->new(
 
 my $result = $handler->testlocales();
 diag explain $result;
-is scalar(keys %{$result->{errors}}), 2, 'found errors as locales files have issues';
-is $result->{status}, 0, 'status is 0 as there are errors';
-
-is @{$result->{errors}->{de}}[0], '(line=26): %plural() requires 3 parameters for this language (provided: 2)', 'correct error message';
-is scalar @{$result->{errors}->{de}}, 2, 'correct number of error message for pt file';
-
-is scalar(keys %{$result->{warnings}}), 0, 'no warnings found';
+is scalar(keys %{$result->{errors}}), 0, 'No errors found';
+is $result->{status}, 1, 'Status is 1 as there are no errors';
