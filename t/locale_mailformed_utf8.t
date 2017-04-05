@@ -18,7 +18,7 @@ use Locale::Maketext::Test;
 # This test is to test this error is fixed.
 ################################################################################
 
-plan tests => 2;
+plan tests => 3;
 
 my $handler = Locale::Maketext::Test->new(
                                           directory => dirname(File::Spec->rel2abs($0)) . '/locales',
