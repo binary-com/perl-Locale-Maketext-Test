@@ -8,7 +8,7 @@ plan tests => 6;
 
 my $handler = Locale::Maketext::Test->new(directory => dirname(File::Spec->rel2abs($0)) . '/locales');
 my $result = $handler->testlocales();
-diag explain $result;
+
 is scalar(keys %{$result->{errors}}), 2, 'found errors as locales files have issues';
 is $result->{status}, 0, 'status is 0 as there are errors';
 
