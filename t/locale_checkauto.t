@@ -4,24 +4,11 @@ use File::Spec;
 use File::Basename;
 use Locale::Maketext::Test;
 
-################################################################################
-# NOTES
-# There is a bug in Locale::Maketext on perl v5.16 or lower version
-# When run this test with perl v5.16 or lower
-# With the following lines:
-# use Locale::Maketext::ManyPluralForms {
-#'EN'      => ['Gettext' => '/home/git/binary-com/translations-websockets-api/src/en.po'],
-#  '_decode' => 1, ....
-#};
-# There will be an error:
-# Malformed UTF-8 character (unexpected end of string) in string ne .....
-# This test is to test this error is fixed.
-################################################################################
-plan tests => 2;
+plan tests => 3;
 
 my $handler = Locale::Maketext::Test->new(
     directory => dirname(File::Spec->rel2abs($0)) . '/locales',
-    languages => ['de'],
+    languages => ['pt'],
     auto      => 1
 );
 
@@ -29,3 +16,4 @@ my $result = $handler->testlocales();
 
 is scalar keys %{$result->{errors}}, 0, 'No error as auto flag is set, so it will skip untranslated/fuzzy strings';
 is $result->{status}, 1, 'Status is 1 as there are no errors';
+
