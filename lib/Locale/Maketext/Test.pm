@@ -193,7 +193,7 @@ sub BUILD {
     }
 
     return Locale::Maketext::ManyPluralForms->import({
-            '_decode' => 1,
+            '_decode' => 0,
             '_auto'   => $self->auto,
             '*'       => ['Gettext' => File::Spec->rel2abs($self->directory) . '/*.po']});
 }
